@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+/* This takes care hiding the close button in all jQuery dialogs */
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+body
+{
+	font-size:70%;
+}
