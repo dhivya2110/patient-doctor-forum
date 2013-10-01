@@ -34,7 +34,7 @@ if(!isset($_COOKIE["type"]))
 	
 	<div id="dialog" title="Select your preference" >
 	
-	Select category of questions that you will be interesting in : 
+	Select category of questions that you are interested in : 
 	
 	  <select id = "qn_type">
 	  	<?php 

@@ -30,7 +30,7 @@
 			echo $question_desc;
 		?>
 		<br/><br/>
-		<a href = '#' > View Answer </a>
+		<a href ="http://localhost/patient-doctor-forum/APIs/FetchAnswer.php?answer_id= <?php echo $answer_id ?>" > View Answer </a>
 	</div>
 
 	<?php			
