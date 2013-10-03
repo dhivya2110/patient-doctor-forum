@@ -48,9 +48,6 @@
 		}
 	}
 
-	#start
-	$api_call_status = array();
-
 	try
 	{
 		$api_call_result["faqlist"] = fetchFAQ();

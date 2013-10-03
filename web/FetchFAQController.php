@@ -8,11 +8,11 @@
 	<?php
 		$category = $_GET['category'];
 		$type = $_GET['type'];
-		$family_faq_result = json_decode(file_get_contents("http://localhost/patient-doctor-forum/APIs/FetchFAQ.php?category=$category&type=$type"), true);
+		$faq_result = json_decode(file_get_contents("http://localhost/patient-doctor-forum/APIs/FetchFAQ.php?category=$category&type=$type"), true);
 
-		if($family_faq_result["success"] == true)
+		if($faq_result["success"] == true)
 		{
-			$faq_list = $family_faq_result['faqlist'];
+			$faq_list = $faq_result['faqlist'];
 			
 			foreach ($faq_list as &$faq)
 			{
@@ -30,7 +30,8 @@
 			echo $question_desc;
 		?>
 		<br/><br/>
-		<a href ="http://localhost/patient-doctor-forum/APIs/FetchAnswer.php?answer_id= <?php echo $answer_id ?>" > View Answer </a>
+		
+		<a href ="http://localhost/patient-doctor-forum/web/FetchAnswerController.php?answer_id=<?php echo $answer_id?>" > View Answer </a>
 	</div>
 
 	<?php			
