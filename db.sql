@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.0.1
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 29, 2013 at 03:31 PM
--- Server version: 5.1.37
--- PHP Version: 5.3.0
+-- Generation Time: Oct 04, 2013 at 05:16 PM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 --
 -- Database: `forum`
@@ -16,20 +17,17 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questions`
---
--- Creation: Sep 28, 2013 at 11:33 PM
+-- Table structure for table `faqa`
 --
 
-	CREATE TABLE IF NOT EXISTS `questions` (
-			`id` int(25) NOT NULL AUTO_INCREMENT,
-			`question` varchar(250) NOT NULL,
-			`question_desc` varchar(500) NOT NULL,
-			`status` int(10) NOT NULL,
-			`answer_id` int(25) DEFAULT NULL,
-			`type` int(11) NOT NULL,
-			`category` int(11) NOT NULL,
-			`patient_id` int(11) DEFAULT NULL,
-			PRIMARY KEY (`id`)
-			) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
-
+CREATE TABLE IF NOT EXISTS `faqa` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `question` text NOT NULL,
+  `question_desc` text,
+  `answer` text NOT NULL,
+  `video_link` varchar(200) NOT NULL,
+  `time_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `type` bigint(20) NOT NULL,
+  `category` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;

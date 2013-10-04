@@ -18,20 +18,30 @@
 			{
 				$question = $faq['question'];
 				$question_desc = $faq['question_desc'];
-				$answer_id = $faq['answer_id'];
+				$answer = $faq['answer'];
 	?>
 	<h3>
 		<?php
 			echo $question;
 		?>
 	</h3>
+	
 	<div>
-		<?php
-			echo $question_desc;
+		<?php 
+			if(!empty($question_desc))
+			{
+				echo "<b>Additional Question Details :</b> <br>";
+					
+				echo $question_desc;
+					
+				echo "<br/><br/>";
+			}
 		?>
-		<br/><br/>
+				
+		<b>Answer :</b> <br>
 		
-		<a href ="http://localhost/patient-doctor-forum/web/FetchAnswerController.php?answer_id=<?php echo $answer_id?>" > View Answer </a>
+		<?php echo $answer ?>
+	
 	</div>
 
 	<?php			
