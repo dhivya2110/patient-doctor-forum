@@ -31,4 +31,7 @@ $db_username = 'root';
 $db_password = '';
 $db_name = 'forum';
 $db_hostname = 'localhost';
+
+#website-url
+$website_base_url = "http://localhost/patient-doctor-forum/";
 ?>

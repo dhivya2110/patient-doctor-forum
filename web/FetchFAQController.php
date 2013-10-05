@@ -6,10 +6,11 @@
 </script>
 <div class="accordion">
 	<?php
+		include ('web-config.php');
 		$category = $_GET['category'];
 		$type = $_GET['type'];
-		$faq_result = json_decode(file_get_contents("http://localhost/patient-doctor-forum/APIs/FetchFAQ.php?category=$category&type=$type"), true);
-
+		$faq_result = json_decode(file_get_contents($api_uri . "FetchFAQ.php?category=$category&type=$type"), true);
+		
 		if($faq_result["success"] == true)
 		{
 			$faq_list = $faq_result['faqlist'];

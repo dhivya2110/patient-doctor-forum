@@ -1,5 +1,6 @@
 <?php
-	include '../TableQueries/Question.php';
+	include 'api-config.php';
+	include $data_object_uri .'FAQA.php';
 	include '../config.php';
 
 	function fetchFAQ()

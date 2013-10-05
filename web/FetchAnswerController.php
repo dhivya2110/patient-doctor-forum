@@ -7,7 +7,7 @@
 <div class="accordion">
 	<?php
 		$answer_id=$_GET['answer_id'];
-		$ans_result = json_decode(file_get_contents("http://localhost/patient-doctor-forum/APIs/FetchAnswer.php?answer_id=$answer_id"), true);
+		$ans_result = json_decode(file_get_contents($api_uri . "FetchAnswer.php?answer_id=$answer_id"), true);
 
 		if($ans_result["success"] == true)
 		{

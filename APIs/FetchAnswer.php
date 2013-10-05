@@ -1,5 +1,6 @@
 <?php
-	include '../TableQueries/Answer.php';
+	include 'api-config.php';
+	include $data_object_uri . 'Answer.php';
 	include '../config.php';
 
 	function fetchAnswer()
@@ -13,7 +14,7 @@
 			return $Answer;
 		}
 		else
-			throw new Exception("Invalid request. Category/Type not set");
+			throw new Exception("Answer id not set in url");
 	}
 
 	#start

@@ -1,6 +1,6 @@
 <?php
 
-include('../DB/DBUtil.php');
+include('../Utils/DBUtil.php');
 include('../config.php');
 
 function getAnswersByAnswerId($answer_id)
