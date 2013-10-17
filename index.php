@@ -25,7 +25,7 @@
 	</head>
 	<body>
 		<div id = "banner" >
-			<h1>Shree Chitra Institute</h1>
+			<h1>Sree Chitra Institute</h1>
 		</div>
 		<div id = "menu" >
 			<span ><a href = "#" id = "ask-question" >Ask Question</a></span>
