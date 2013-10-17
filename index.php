@@ -24,13 +24,19 @@
 		</script>
 	</head>
 	<body>
+		
 		<div id = "banner" >
 			<h1>Shree Chitra Institute</h1>
 		</div>
+		
 		<div id = "menu" >
 			<span ><a href = "#" id = "ask-question" >Ask Question</a></span>
 		</div>
-		<div id = "story-board" ></div>
+		
+		<div id = "story-board" >
+			<?php include 'web/newScrollerStatic.html' ?>
+		</div>
+		
 		<div id = "questions" >
 			<?php 
 				$type = $_COOKIE["type"];
