@@ -7,7 +7,7 @@
 			include('jQuery/jQuery-includes.html');
 			include ('config.php');
 			include ('web/QuestionTypeSelector.php');
-			include ('web/AskQuestion.php');
+			include ('web/AskQuestion.html');
 		?>
 		<script>
 		  $(function() {
