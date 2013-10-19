@@ -5,6 +5,7 @@
 	  	<link rel="stylesheet" type="text/css" href="style.css">
 		<?php
 			include('jQuery/jQuery-includes.html');
+			include ('config.php');
 			include ('web/QuestionTypeSelector.php');
 			include ('web/AskQuestion.php');
 		?>

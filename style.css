@@ -39,3 +39,9 @@ h1
     height: 5%;
     text-align:right;
 }
+
+.alert
+{
+	font-size:70%;
+	background-color:#8AC007;
+}

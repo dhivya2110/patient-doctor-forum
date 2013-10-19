@@ -24,6 +24,21 @@
 	{
 		mysqli_close($con);
 	}
+	
+	function insert_sql($sqlQuery)
+	{
+		$con = connect2DB();
+		
+		$result = mysqli_query($con, $sqlQuery);
+		
+		if($result === FALSE)
+		{
+			closeDBConnection($con);
+			throw new Exception("Internal DB error when inserting. Query : " + $sqlQuery);
+		}		
+		
+		return $result;
+	}
 
 	function execute_sql($sqlQuery)
 	{
