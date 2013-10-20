@@ -26,8 +26,8 @@
 	</head>
 	<body>
 		
-		<div id = "banner" >
-			<h1>Sree Chitra Institute</h1>
+		<div id = "banner" align="center">
+			<img src="Utils/sctimst_logo.png" align="middle">
 		</div>
 		
 		<div id = "menu" >
@@ -38,6 +38,9 @@
 			<?php include 'web/newScrollerStatic.html' ?>
 		</div>
 		
+		<div id = "tips_video" >
+			<?php include 'web/Scrollerstatic_right.html' ?>
+		</div>
 		<div id = "questions" >
 			<?php 
 				$type = $_COOKIE["type"];
