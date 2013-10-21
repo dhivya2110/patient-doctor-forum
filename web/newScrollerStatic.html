@@ -1,16 +1,17 @@
 <script>
-$(function(){
-	$('.newsScroller').vTicker({ 
+$(document).ready(function(){
+	$('.newsScroller2').vTicker({ 
 		speed: 500,
 		pause: 2000,
 		animation: 'fade',
 		mousePause: true,
-		showItems: 3
+		showItems: 3,
+		height: 0
 	});
 });
 </script>
 
-<div class = "newsScroller">
+<div class = "newsScroller2">
 <ul>
 <li>Success Story 1</li>
 <li>Success Story 2</li>
