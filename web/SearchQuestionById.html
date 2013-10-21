@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="http://richhollis.github.io/vticker/downloads/jquery.vticker.min.js?v=1.13"></script>
+<script type="text/javascript">
+$(function() {
+	$( "#search-question" ).click(function() {
+            		form = $( "#question-search" ).serializeArray();
+            		$.ajax({ url: 'http://localhost/patient-doctor-forum/APIs/SearchQuestionById.php',
+            		    data: form,
+            		    dataType: 'json',
+            		    type: 'get',
+            		    success: function(output) {
+            		    	html_response = "";
+                		    if(output.success == true)
+                		    {
+                		    	if(output.question == "")
+                    		    	html_response += "Question with the given id doesn't exists"; 
+                		    	else
+                		    	{
+                		    		$.each(output.question, function(key, question){
+                		    			html_response += "<th>Question</th>";
+                		    			html_response += "<th>Forward Status</th>";
+                		    			html_response += "<th>Answer status</th>";
+                		    			html_response += "<tr>";                		    			
+                		    			html_response += "<td>" + question.question + "<\/td>"
+                		    			if(question.status == 2)<!-- Unanswered question !>
+                		    				html_response += "<td> <a href='#' > Forward </a> </td>";
+                		    			else if(question.status == 3)
+                    		    		{
+                		    				html_response += "<td> Forwarded already </td>";
+                		    				html_response += "<td><a href = '#'>Post Answer</a> </td>";
+                    		    		}
+                    		    		else if(question.status == 4)
+                    		    		{
+                    		    			html_response += "<td></td>";<!-- Question forwarded or not details not available but answered already !>
+                    		    			html_response += "<td> Question Answered Already</td>";
+                    		    		}
+                		    			html_response += "</tr>"; 
+                					});
+                		    		html_response = "<table border = '1'>" + html_response + "</table>"
+                		    	}
+                		    }
+                		    else
+                		    {
+                		    	html_response += output.message;
+                		    }
+                		    document.getElementById("question-result").innerHTML = html_response;
+            		    }
+            		});
+	});
+});
+</script>
+
+<div id="dialog" title= "Search Question" >
+	<form id = "question-search" >
+		Enter Question id : <input type = "text" name = "id" />
+		<input type = "button" id = "search-question" value = "Search" />
+	</form>
+	<div id = "question-result" class = "alert" ></div>
+</div>

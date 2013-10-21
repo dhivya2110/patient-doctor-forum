@@ -3,7 +3,7 @@
 	include $data_object_uri .'Question.php';
 	include '../config.php';
 
-	function fetchFAQ()
+	function postQA()
 	{
 		if(isset($_POST['question-to-post']) && isset($_POST['patient_id']))
 		{
@@ -15,7 +15,7 @@
 			if(isset($_POST['question_desc']))
 				$questionDesc = $_POST['question_desc'];
 			
-			$insertResult = patientPostQuestion($question, $questionDesc, $patientId);
+			$insertResult = insertQuestion($question, $questionDesc, $patientId);
 			
 			return $insertResult;
 		}
@@ -25,7 +25,7 @@
 
 	try
 	{
-		$api_call_result["row_inserted"] = fetchFAQ();
+		$api_call_result["row_inserted"] = postQA();
 		$api_call_result["success"] = true;
 	}
 
