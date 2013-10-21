@@ -26,6 +26,7 @@ h1
 }
 #story-board {
     float:left;
+    position:relative;
     width: 10%;
     height: 80%;
 }
@@ -33,6 +34,7 @@ h1
 #questions {
 	font-size:70%;
     float:left;
+    position:relative;
     width: 80%;
     height: 80%;
 }

@@ -47,6 +47,7 @@
 			?>
 			<div id="tabs">
 			  <ul>
+			    <li><a href="web/Home.html">Home</a></li>
 				<li><a href="web/FetchFAQController.php?category=1&type=<?php echo $type ?>">Personal Questions</a></li>
 				<li><a href="web/FetchFAQController.php?category=2&type=<?php echo $type ?>">Family Questions</a></li>
 				<li><a href="web/FetchFAQController.php?category=3&type=<?php echo $type ?>">Vocation Questions</a></li>
@@ -55,6 +56,7 @@
 				<li><a href="web/FetchFAQController.php?category=6&type=<?php echo $type ?>">Recreation Questions</a></li>
 				<li><a href="web/FetchFAQController.php?category=7&type=<?php echo $type ?>">Nutrition Questions</a></li>
 				<li><a href="web/FetchFAQController.php?category=8&type=<?php echo $type ?>">Physical Activity Questions</a></li>
+				<li><a href="web/Contact.html">Contact Us</a>
 			  </ul>
 			</div>
 		</div>
