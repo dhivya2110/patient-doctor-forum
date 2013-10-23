@@ -114,3 +114,8 @@ h1
 	font-size:70%;
 	background-color:#F6E3CE;
 }
+.disp
+{
+	border:none;
+	position:absolute;
+}

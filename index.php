@@ -9,28 +9,7 @@
 			include ('web/QuestionTypeSelector.php');
 			include ('web/AskQuestion.html');
 		?>
-<script>
-  $('[data-target]').click( function (e) {
-    var target = $($(this).attr('data-target'));
-    target.load($(this).attr('href'));
-
-    e.preventDefault(); // prevent anchor from changing window.location
-  });
-</script>
-		<!-- 		<script> 
-		  $(function() {
-			$( "#tabs" ).tabs(
-			{
-				beforeLoad: function( event, ui )
-				{
-					ui.jqXHR.error(function() 
-					{
-						ui.panel.html("Internal error. Please try again" );
-					});
-				}
-			});
-		  });
-		</script>  -->
+		 <script>$(".active").click();</script>
 	</head>
 	<body>
 		
@@ -46,16 +25,16 @@
 				$type = $_COOKIE["type"];
 			?>
 <ul>
-<li class='active'><a data-target="#questions" href="web/Home.html"><span>Home</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=1&type=<?php echo $type ?>"><span>Personal</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=2&type=<?php echo $type ?>"><span>Family</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=3&type=<?php echo $type ?>"><span>Vocation</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=4&type=<?php echo $type ?>"><span>Community</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=5&type=<?php echo $type ?>"><span>Social</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=6&type=<?php echo $type ?>"><span>Recreation</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=7&type=<?php echo $type ?>"><span>Nutrition</span></a></li>
-				<li><a data-target="#questions" href="web/FetchFAQController.php?category=8&type=<?php echo $type ?>"><span>Physical Activity</span></a></li>
-				<li class='last'><a data-target="#questions" href="web/Contact.html"><span>Contact Us</span></a></li>
+<li class="active"><a target="dispframe" href="web/Home.html"><span>Home</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=1&type=<?php echo $type ?>"><span>Personal</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=2&type=<?php echo $type ?>"><span>Family</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=3&type=<?php echo $type ?>"><span>Vocation</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=4&type=<?php echo $type ?>"><span>Community</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=5&type=<?php echo $type ?>"><span>Social</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=6&type=<?php echo $type ?>"><span>Recreation</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=7&type=<?php echo $type ?>"><span>Nutrition</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=8&type=<?php echo $type ?>"><span>Physical Activity</span></a></li>
+				<li class='last'><a target="dispframe" href="web/Contact.html"><span>Contact Us</span></a></li>
 </ul>
 </div>
 		
@@ -67,6 +46,8 @@
 			<?php include 'web/Scrollerstatic_right.html' ?>
 		</div>
 		<div id = "questions" style="display: inline-block" >
+		<iframe id="questions" name="dispframe" class="disp">
+		</iframe>
 		</div>
 	</body>
 </html>
