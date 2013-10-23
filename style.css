@@ -1,5 +1,73 @@
 @CHARSET "ISO-8859-1";
 /* This takes care hiding the close button in all jQuery dialogs */
+@import url(http://fonts.googleapis.com/css?family=Capriola);
+/* Let's import the lovely google font, please keep this line at the top of your stylesheet */
+/* Menu CSS */#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  font-family: 'Capriola', sans-serif;
+}
+#cssmenu:before,
+#cssmenu:after,
+#cssmenu > ul:before,
+#cssmenu > ul:after {
+  content: '';
+  display: table;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  clear: both;
+}
+#cssmenu {
+	top:-25%;
+  zoom: 1;
+  height: 50px;
+  border-radius: 2px;
+  width: auto;
+}
+#cssmenu ul {
+		top:-25%;
+  background: black 0px 4px;
+  height: 50px;
+}
+#cssmenu ul li {
+		top:-25%;
+  float: left;
+  list-style: none;
+}
+#cssmenu ul li a {
+		top:-25%;
+  display: block;
+  height: 30px;
+  padding: 12px 25px;
+  margin: 4px 2px;
+  border-radius: 2px 2px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+  font-weight: 400;
+  opacity: .9;
+}
+#cssmenu ul li:first-child a {
+		top:-25%;
+  margin: 4px 2px 0 0;
+}
+#cssmenu ul li a:hover,
+#cssmenu ul li.active a {
+		top:-25%;
+  background: #CCFF33 center bottom;
+  display: block;
+  height: 30px;
+  color: #004f7c;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);
+  opacity: 1;
+}
+
 .ui-dialog-titlebar-close {
   visibility: hidden;
 }
@@ -15,17 +83,20 @@ h1
 
 #banner {
     float:left;
+    position:relative;
+    top:0px;
     width: 100%;
     height: 25%;    
 }
 
 #tips_video {
-    float:right;
+    float:left;
+    position:relative;
     width: 10%;
     height: 80%;    
 }
 #story-board {
-    float:left;
+    float:right;
     position:relative;
     width: 10%;
     height: 80%;
@@ -33,17 +104,8 @@ h1
 
 #questions {
 	font-size:70%;
-    float:left;
-    position:relative;
     width: 80%;
     height: 80%;
-}
-
-#menu {
-    float:left;
-    width: 100%;
-    height: 5%;
-    text-align:right;
 }
 
 .alert
