@@ -29,11 +29,11 @@
   border-radius: 2px;
   width: auto;
 }
-#cssmenu ul {
+/* #cssmenu ul {
 		top:-25%;
   background: black 0px 4px;
   height: 50px;
-}
+} */
 #cssmenu ul li {
 		top:-25%;
   float: left;
@@ -48,8 +48,7 @@
   border-radius: 2px 2px;
   text-decoration: none;
   font-size: 15px;
-  color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+  color:#8A0808;
   font-weight: 400;
   opacity: .9;
 }
@@ -60,11 +59,10 @@
 #cssmenu ul li a:hover,
 #cssmenu ul li.active a {
 		top:-25%;
-  background: #CCFF33 center bottom;
+  background: #D8D8D8 center bottom;
   display: block;
   height: 30px;
-  color: #004f7c;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);
+  color: #0431B4;
   opacity: 1;
 }
 
@@ -90,20 +88,20 @@ h1
 }
 
 #tips_video {
-    float:left;
+    float:right;
     position:relative;
     width: 10%;
     height: 80%;    
 }
 #story-board {
-    float:right;
+    float:left;
     position:relative;
     width: 10%;
     height: 80%;
 }
 
 #questions {
-	font-size:70%;
+	font-size:50%;
     width: 80%;
     height: 80%;
 }
@@ -117,7 +115,7 @@ h1
 .disp
 {
 	border:none;
-	position:absolute;
+	overflow-y:hidden;
 }
 #menu
 {

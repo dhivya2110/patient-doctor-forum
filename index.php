@@ -9,7 +9,11 @@
 			include ('web/QuestionTypeSelector.php');
 			include ('web/AskQuestion.html');
 		?>
-		 <script>$(".active").click();</script>
+		 <script language="javascript" type="text/javascript">
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
 	</head>
 	<body>
 		
@@ -42,8 +46,8 @@
 		<div id = "tips_video" style="display: inline-block" >
 			<?php include 'web/Scrollerstatic_right.html' ?>
 		</div>
-		<div id = "questions" style="display: inline-block" >
-		<iframe id="questions" name="dispframe" class="disp">
+		<div name="dispframe" id = "questions" style="display: inline-block" >
+		<iframe id="questions" name="dispframe" scrolling="no" class="disp" onload='javascript:resizeIframe(this);'>
 		</iframe>
 		</div>
 	</body>
