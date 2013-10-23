@@ -15,11 +15,8 @@
 		
 		<div id = "banner" align="center">
 			<img src="Utils/sctimst_logo.png" align="middle">
+			<span id="menu" ><a href = "#" id = "ask-question" >Ask Question</a></span><br>
 		</div>
-		
-<!-- 		<div id = "menu" > -->
-<!-- 			<span ><a href = "#" id = "ask-question" >Ask Question</a></span> -->
-<!-- 		</div> -->
 		<div id='cssmenu'>
 		<?php 
 				$type = $_COOKIE["type"];

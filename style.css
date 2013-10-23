@@ -119,3 +119,7 @@ h1
 	border:none;
 	position:absolute;
 }
+#menu
+{
+	float:right;
+}
