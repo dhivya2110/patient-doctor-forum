@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="http://richhollis.github.io/vticker/downloads/jquery.vticker.min.js?v=1.13"></script>
+<script type="text/javascript">
+$(function()
+{
+	$( "#search-question" ).click(function() {
+		form = $( "#question-search" ).serializeArray();
+		$.ajax({ url: 'http://localhost/patient-doctor-forum/APIs/SearchQuestionById.php',
+		    data: form,
+		    dataType: 'json',
+		    type: 'get',
+		    success: function(output) {
+		    	html_response = "";
+			    if(output.success == true)
+			    {
+			    	if(output.question == "")
+	    		    	html_response += "Question with the given id doesn't exists"; 
+			    	else
+			    	{
+			    		$.each(output.question, function(key, question){
+			    			qn = question.question;
+			    			qn_id = question.id;
+			    			
+			    			question_details = "<input type = 'hidden' id = 'question' value = '" + qn + "' />"
+			    			question_details += "<input type = 'hidden' id = 'question_id' value = '" + qn_id + "' />";
+			    			
+			    			$("#question-details").html(question_details);
+			    			
+			    			html_response = "<th>Question</th>";
+			    			html_response += "<th>Forward Status</th>";
+			    			html_response += "<th>Answer status</th>";
+			    			html_response += "<tr>";                		    			
+			    			html_response += "<td>" + qn + "<\/td>";
+			    			if(question.status == 2)
+			    			{
+			    				html_response += "<td> <a href = '#' id = 'getEmails'>Forward </a> </td>";
+			    				html_response += "<td><a href = '#' id = 'postAnswer' >Post Answer</a> </td>";
+			    			}
+			    			else if(question.status == 3)
+	    		    		{
+			    				html_response += "<td> Forwarded already </td>";
+			    				html_response += "<td><a href = '#' id = 'postAnswer' >Post Answer</a> </td>";
+	    		    		}
+	    		    		else if(question.status == 4)
+	    		    		{
+	    		    			html_response += "<td>Question Answered</td>";
+	    		    			html_response += "<td> Question Answered Already</td>";
+	    		    		}
+			    			html_response += "</tr>"; 
+						});
+			    		html_response = "<table border = '1'>" + html_response + "</table>";
+			    	}
+			    }
+			    else
+			    {
+			    	html_response += output.message;
+			    }
+			    $("#question-result").html(html_response);
+		    }
+		});
+	});
+	$( document.body ).on("click", "#getEmails", function() {
+		$( "#email-dialog" ).dialog({
+	    	modal: true,
+	    	closeOnEscape: false,
+	    	buttons: [{
+	            id:"btn-forward",
+	            text: "Forward",
+	            click: function() {
+	                	alert("Question Forwarded successfully!! Thank you!!");
+	                	$(this).dialog("close");
+	            }
+	    	}]
+	    }); 
+	});
+	
+	$( document.body ).on("click", "#postAnswer", function() {
+		$( "#post-answer-dialog" ).dialog({
+	    	modal: true,
+	    	closeOnEscape: false,
+	    	buttons: [{
+	            id:"btn-forward",
+	            text: "Forward",
+	            click: function() {
+	                	alert("Answer Posted successfully!! Thank you!!");
+	                	$(this).dialog("close");
+	            }
+	    	}]
+	    }); 
+	});
+	
+	$("#email-dialog").hide();
+	$("#post-answer-dialog").hide();
+});
+</script>
+<div id="email-dialog" title="Specify email ids" >
+	<textarea rows="3" cols="25"></textarea>
+</div>
+<div id = "question-details"></div>
+<div title= "Search Question" >
+	<form id = "question-search" >
+		Enter Question id : <input type = "text" name = "id" />
+		<input type = "button" id = "search-question" value = "Search" />
+	</form>
+	<div id = "question-result" class = "alert" ></div>
+</div>
+<div id="post-answer-dialog" title="Your answer" >
+	<textarea rows="3" cols="25"></textarea>
+</div>
