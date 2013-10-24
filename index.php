@@ -9,56 +9,46 @@
 			include ('web/QuestionTypeSelector.php');
 			include ('web/AskQuestion.html');
 		?>
-		<script>
-		  $(function() {
-			$( "#tabs" ).tabs(
-			{
-				beforeLoad: function( event, ui )
-				{
-					ui.jqXHR.error(function() 
-					{
-						ui.panel.html("Internal error. Please try again" );
-					});
-				}
-			});
-		  });
-		</script>
+		 <script language="javascript" type="text/javascript">
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
 	</head>
 	<body>
 		
 		<div id = "banner" align="center">
 			<img src="Utils/sctimst_logo.png" align="middle">
+			<span id="menu" ><a href = "#" id = "ask-question" >Ask Question</a></span><br>
 		</div>
+		<div id='cssmenu'>
+		<?php 
+				$type = $_COOKIE["type"];
+			?>
+<ul>
+<li class="active"><a target="dispframe" href="web/Home.html"><span>Home</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=1&type=<?php echo $type ?>"><span>Personal</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=2&type=<?php echo $type ?>"><span>Family</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=3&type=<?php echo $type ?>"><span>Vocation</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=4&type=<?php echo $type ?>"><span>Community</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=5&type=<?php echo $type ?>"><span>Social</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=6&type=<?php echo $type ?>"><span>Recreation</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=7&type=<?php echo $type ?>"><span>Nutrition</span></a></li>
+				<li><a target="dispframe" href="web/FetchFAQController.php?category=8&type=<?php echo $type ?>"><span>Physical Activity</span></a></li>
+				<li class='last'><a target="dispframe" href="web/Contact.html"><span>Contact Us</span></a></li>
+</ul>
+</div>
 		
-		<div id = "menu" >
-			<span ><a href = "#" id = "ask-question" >Ask Question</a></span>
-		</div>
-		
-		<div id = "story-board" >
+		<div id = "story-board" style="display: inline-block" >
 			<?php include 'web/newScrollerStatic.html' ?>
 		</div>
 		
-		<div id = "tips_video" >
+		<div id = "tips_video" style="display: inline-block" >
 			<?php include 'web/Scrollerstatic_right.html' ?>
 		</div>
-		<div id = "questions" >
-			<?php 
-				$type = $_COOKIE["type"];
-			?>
-			<div id="tabs">
-			  <ul>
-			    <li><a href="web/Home.html">Home</a></li>
-				<li><a href="web/FetchFAQController.php?category=1&type=<?php echo $type ?>">Personal Questions</a></li>
-				<li><a href="web/FetchFAQController.php?category=2&type=<?php echo $type ?>">Family Questions</a></li>
-				<li><a href="web/FetchFAQController.php?category=3&type=<?php echo $type ?>">Vocation Questions</a></li>
-				<li><a href="web/FetchFAQController.php?category=4&type=<?php echo $type ?>">Community Questions</a></li>
-				<li><a href="web/FetchFAQController.php?category=5&type=<?php echo $type ?>">Social Questions</a></li>
-				<li><a href="web/FetchFAQController.php?category=6&type=<?php echo $type ?>">Recreation Questions</a></li>
-				<li><a href="web/FetchFAQController.php?category=7&type=<?php echo $type ?>">Nutrition Questions</a></li>
-				<li><a href="web/FetchFAQController.php?category=8&type=<?php echo $type ?>">Physical Activity Questions</a></li>
-				<li><a href="web/Contact.html">Contact Us</a>
-			  </ul>
-			</div>
+		<div name="dispframe" id = "questions" style="display: inline-block" >
+		<iframe id="questions" name="dispframe" scrolling="no" class="disp" onload='javascript:resizeIframe(this);'>
+		</iframe>
 		</div>
 	</body>
 </html>

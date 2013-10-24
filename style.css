@@ -1,5 +1,71 @@
 @CHARSET "ISO-8859-1";
 /* This takes care hiding the close button in all jQuery dialogs */
+@import url(http://fonts.googleapis.com/css?family=Capriola);
+/* Let's import the lovely google font, please keep this line at the top of your stylesheet */
+/* Menu CSS */#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  font-family: 'Capriola', sans-serif;
+}
+#cssmenu:before,
+#cssmenu:after,
+#cssmenu > ul:before,
+#cssmenu > ul:after {
+  content: '';
+  display: table;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  clear: both;
+}
+#cssmenu {
+	top:-25%;
+  zoom: 1;
+  height: 50px;
+  border-radius: 2px;
+  width: auto;
+}
+/* #cssmenu ul {
+		top:-25%;
+  background: black 0px 4px;
+  height: 50px;
+} */
+#cssmenu ul li {
+		top:-25%;
+  float: left;
+  list-style: none;
+}
+#cssmenu ul li a {
+		top:-25%;
+  display: block;
+  height: 30px;
+  padding: 12px 25px;
+  margin: 4px 2px;
+  border-radius: 2px 2px;
+  text-decoration: none;
+  font-size: 15px;
+  color:#8A0808;
+  font-weight: 400;
+  opacity: .9;
+}
+#cssmenu ul li:first-child a {
+		top:-25%;
+  margin: 4px 2px 0 0;
+}
+#cssmenu ul li a:hover,
+#cssmenu ul li.active a {
+		top:-25%;
+  background: #D8D8D8 center bottom;
+  display: block;
+  height: 30px;
+  color: #0431B4;
+  opacity: 1;
+}
+
 .ui-dialog-titlebar-close {
   visibility: hidden;
 }
@@ -15,12 +81,15 @@ h1
 
 #banner {
     float:left;
+    position:relative;
+    top:0px;
     width: 100%;
     height: 25%;    
 }
 
 #tips_video {
     float:right;
+    position:relative;
     width: 10%;
     height: 80%;    
 }
@@ -32,18 +101,9 @@ h1
 }
 
 #questions {
-	font-size:70%;
-    float:left;
-    position:relative;
+	font-size:50%;
     width: 80%;
     height: 80%;
-}
-
-#menu {
-    float:left;
-    width: 100%;
-    height: 5%;
-    text-align:right;
 }
 
 .alert
@@ -51,4 +111,13 @@ h1
 	font-color:#d3902a;
 	font-size:70%;
 	background-color:#F6E3CE;
+}
+.disp
+{
+	border:none;
+	overflow-y:hidden;
+}
+#menu
+{
+	float:right;
 }
