@@ -23,7 +23,7 @@
 			{
 				$question = $faq['question'];
 				$question_desc = $faq['question_desc'];
-				$answer = $faq['answer'];
+				$answer = $faq['answer_en'];
 	?>
 	<h3>
 		<?php

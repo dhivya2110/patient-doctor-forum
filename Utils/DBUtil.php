@@ -13,10 +13,7 @@
 		{
 			throw new Exception("Internal DB error");
 		}
-		else
-		{	
-			#echo "connected to db successfully";
-		}
+		
 		return $con;
 	}
 
@@ -34,10 +31,23 @@
 		if($result === FALSE)
 		{
 			closeDBConnection($con);
-			throw new Exception("Internal DB error when inserting. Query : " + $sqlQuery);
+			throw new Exception("Internal DB error when inserting");
 		}		
 		
 		return $result;
+	}
+	
+	function update_sql($sqlQuery)
+	{
+		$con = connect2DB();
+		
+		$result = mysqli_query($con, $sqlQuery);
+		
+		$rows_updated = mysqli_affected_rows($con);
+		
+		closeDBConnection($con);
+		
+		return $rows_updated;
 	}
 
 	function execute_sql($sqlQuery)
@@ -45,7 +55,7 @@
 		$con = connect2DB();
 		
 		$result = mysqli_query($con, $sqlQuery);
-		
+
 		if($result === FALSE)
 		{
 			closeDBConnection($con);
