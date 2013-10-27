@@ -11,9 +11,9 @@ function postAnswer()
 	
 	foreach ($inputParamsList as $inputName)
 	{
-		if(isset($_GET[$inputName]))
+		if(isset($_POST[$inputName]))
 		{
-			$updateVariables[$inputName] = $_GET[$inputName];
+			$updateVariables[$inputName] = $_POST[$inputName];
 		}
 		else
 			throw new Exception("$inputName not set in request");
