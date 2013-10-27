@@ -17,9 +17,30 @@ function getQuestionsById($id)
 	return $result;
 }
 
-function updateQuestionById($id, $question, $question_desc, $answer_en, $answer_ml, $video_link, $type, $category, $patient_id, $answer_author, $status)
+function updateQuestionById($askedQuestion)
 {
-	$sql = "update patientqa set question = '$question', question_desc = '$question_desc', answer_en = '$answer_en', answer_ml = '$answer_ml', video_link = '$video_link', type = $type, category = $category, patient_id = $patient_id, answer_author = '$answer_author', status = $status where id = $id";
+	$inputStringParamsList = array("question","question_desc","answer_en","answer_ml","video_link","answer_author");
+	$inputNumberParamsList = array("type","category","patient_id","status");
+	
+	$sql = "update patientqa set ";
+	
+	foreach($inputStringParamsList as $colName)
+	{
+		$sql = $sql . "$colName = '$askedQuestion[$colName]',";
+	}
+	
+	foreach($inputNumberParamsList as $colName)
+	{
+		$sql = $sql . "$colName = $askedQuestion[$colName],";
+	}
+	
+	$sql = rtrim($sql, ","); //to remove the last comma added in for loop
+	
+	$id = $askedQuestion['id'];
+	
+	$sql = $sql . " where id = $id";
+	
+	echo "Final sql : $sql";
 	$result = update_sql($sql);
 	return $result;
 }

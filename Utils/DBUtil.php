@@ -47,6 +47,11 @@
 		
 		closeDBConnection($con);
 		
+		if($rows_updated == -1)
+			throw new Exception("Error in the input values given");
+		else if($rows_updated == 0)
+			throw new Exception("No update happened. Either value updated already or no such question exists");
+		
 		return $rows_updated;
 	}
 

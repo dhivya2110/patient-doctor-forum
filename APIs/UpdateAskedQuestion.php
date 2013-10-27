@@ -5,31 +5,23 @@ include $data_object_uri .'Question.php';
 
 function postAnswer()
 {
-	 if(isset($_POST['id']) && 
-	 	isset($_POST['question']) &&
-	 	isset($_POST['question_desc']) &&
-	 	isset($_POST['question']) &&
-	 	isset($_POST['answer_en']) &&
-	 	isset($_POST['answer_ml']) &&
-	 	isset($_POST['video_link']) &&
-	 	isset($_POST['type']) &&
-	 	isset($_POST['category']) &&
-	 	isset($_POST['patient_id']) &&
-	 	isset($_POST['answer_author']) &&
-	 	isset($_POST['status']))
-	 {
-	 	$question = $_POST['question-to-post'];
-		$patientId = $_POST['patient_id'];
-			
-		$questionDesc = '';
-			
-		$updateResult = updateQuestionById(4, 'sdfjnfnoi', 'jefbhwu', 'wegfwugfu', 'wegfywgfu', 'wehdwfgub/efnwuf/fbwbf/', 2, 5, 37, 'eygfry', 4);
-			
-		return $updateResult;
-	 }
-	else
-		throw new Exception("Not all input parameters set in request");
+	$inputParamsList = array("id","question","question_desc","answer_en","answer_ml","video_link","type","category","patient_id","answer_author","status");
 	
+	$updateVariables = array();
+	
+	foreach ($inputParamsList as $inputName)
+	{
+		if(isset($_GET[$inputName]))
+		{
+			$updateVariables[$inputName] = $_GET[$inputName];
+		}
+		else
+			throw new Exception("$inputName not set in request");
+	}
+			
+	$updateResult = updateQuestionById($updateVariables);
+			
+	return $updateResult;	
 }
 
 try
