@@ -10,4 +10,4 @@ Kindly have patience and we will get back to you as soon as possible.
 <br>
 <b>Question Description: </b>
 <br>
-<?php echo $_GET['question _desc'] ?>
+<?php echo $_GET['question_desc'] ?>
