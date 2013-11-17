@@ -1,7 +1,5 @@
 <?php
 
-	require '../config.php';
-
 	function connect2DB()
 	{	
 		global $db_hostname, $db_username, $db_password, $db_name;

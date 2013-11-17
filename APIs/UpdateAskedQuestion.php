@@ -1,11 +1,11 @@
 <?php
 
 include 'api-config.php';
-include $data_object_uri .'Question.php';
+include $data_posted_question_uri;
 
 function postAnswer()
 {
-	$inputParamsList = array("id","question","question_desc","answer_en","answer_ml","video_link","type","category","patient_id","answer_author","status");
+	$inputParamsList = array("question_id","question","question_desc","answer_en","answer_ml","video_link","type","category","patient_id","answer_author","status");
 	
 	$updateVariables = array();
 	
@@ -15,11 +15,12 @@ function postAnswer()
 		{
 			$updateVariables[$inputName] = $_GET[$inputName];
 		}
-		else
-			throw new Exception("$inputName not set in request");
 	}
+	
+	if(!array_key_exists("question_id", $updateVariables))
+		throw new Exception("Question id not given. Can't update");
 			
-	$updateResult = updateQuestionById($updateVariables);
+	$updateResult = updateQuestionById($updateVariables['question_id'], $updateVariables);
 			
 	return $updateResult;	
 }

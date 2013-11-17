@@ -1,15 +1,31 @@
 <?php
-
-	function send_mail($to, $subject, $message)
+	function send_email($from, $to, $subject, $body)
 	{
-		//
-		ini_set("SMTP","aspmx.l.google.com");
-		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-		$headers .= "From: dhivya@abme.in" . "\r\n";
-		//send the email
-		$mail_sent = mail( $to, $subject, $message, $headers);
-		//if the message is sent successfully print "Mail sent". Otherwise print "Mail failed"
-		echo $mail_sent ? "Mail sent" : "Mail failed";
+		require_once "Mail.php";
+		
+		$headers = array(
+				'From' => $from,
+				'To' => $to,
+				'Subject' => $subject,
+				'Content-type' => 'text/html',
+				'charset' => 'iso-8859-1'
+		);
+		
+		$smtp = @Mail::factory('smtp', array(
+				'host' => 'ssl://smtp.gmail.com',
+				'port' => '465',
+				'auth' => true,
+				'username' => 'malu.t90@gmail.com',
+				'password' => '28june1990@'
+		));
+		
+		$mail = @$smtp->send($to, $headers, $body);
+		
+		if (PEAR::isError($mail)) 
+		{
+			return false;
+		}
+		
+		return true;
 	}
 ?>

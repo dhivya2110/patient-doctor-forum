@@ -1,16 +1,17 @@
 <?php
 	include 'api-config.php';
-	include $data_object_uri .'Question.php';
-	include '../config.php';
+	include $data_posted_question_uri;
 
 	function fetchQuestionById()
 	{
-		if(isset($_GET['id']))
+		if(isset($_GET['question_id']))
 		{
-			$id = $_GET['id'];
+			$id = $_GET['question_id'];
 			if(is_numeric($id))
 			{
-				$question = getQuestionsById($id);
+				$question = getQuestionById($id);
+				if(is_null($question))
+					throw new Exception("No question with the given id exists");
 				return $question;
 			}
 			else 

@@ -1,31 +1,31 @@
 <?php
 	include 'api-config.php';
-	include $data_object_uri .'Question.php';
-	include '../config.php';
+	include $data_posted_question_uri;
 
-	function postQA()
+	function postQusetion()
 	{
-		if(isset($_POST['question-to-post']) && isset($_POST['patient_id']))
+		if(isset($_POST['question-to-post']) && isset($_POST['patient_id']) && isset($_POST['status']))
 		{
 			$question = $_POST['question-to-post'];
 			$patientId = $_POST['patient_id'];
+			$status = $_POST['status'];
 			
 			$questionDesc = '';
 			
 			if(isset($_POST['question_desc']))
 				$questionDesc = $_POST['question_desc'];
 			
-			$insertResult = insertQuestion($question, $questionDesc, $patientId);
+			$insertResult = insertQuestion($question, $questionDesc, $patientId, $status);
 			
 			return $insertResult;
 		}
 		else
-			throw new Exception("question or patient_id not set in request");
+			throw new Exception("Input parameter missing in request");
 	}
 
 	try
 	{
-		$api_call_result["row_inserted"] = postQA();
+		$api_call_result["row_inserted"] = postQusetion();
 		$api_call_result["success"] = true;
 	}
 

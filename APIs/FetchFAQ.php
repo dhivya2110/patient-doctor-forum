@@ -1,16 +1,15 @@
 <?php
 	include 'api-config.php';
-	include $data_object_uri .'FAQA.php';
-	include '../config.php';
+	include $data_FAQ_uri;
 
 	function fetchFAQ()
 	{
-		if($_GET['category'] || $_GET['type'])
+		if(isset($_GET['category']) || isset($_GET['type']))
 		{
 			$category = $_GET['category'];
 			$type = $_GET['type'];
 			
-			if(!isValidCategory($category) || !isValidType($type))
+			if(!is_numeric($category) || !is_numeric($type))
 				throw new Exception("Invalid value for category/Type");
 			
 			$FAQList = getQuestionsByCategoryAndType($category, $type);
@@ -19,34 +18,6 @@
 		}
 		else
 			throw new Exception("Invalid request. Category/Type not set");
-	}
-
-	function isValidCategory($category)
-	{
-		global $question_category_list;
-		
-		if(in_array($category, $question_category_list))
-		{
-			return true;
-		}
-		else 
-		{
-			return false;
-		}
-	}
-
-	function isValidType($type)
-	{
-		global $question_type_list;
-
-		if(in_array($type, $question_type_list))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
 	}
 
 	try
